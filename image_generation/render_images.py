@@ -272,6 +272,9 @@ def render_scene(args,
     for i in range(3):
       bpy.data.objects['Camera'].location[i] += rand(args.camera_jitter)
 
+  scene_struct['camera_location'] = [bpy.data.objects['Camera'].location.x, bpy.data.objects['Camera'].location.y, bpy.data.objects['Camera'].location.z]
+  scene_struct['camera_rotation'] = [bpy.data.objects['Camera'].rotation_euler.x, bpy.data.objects['Camera'].rotation_euler.y, bpy.data.objects['Camera'].rotation_euler.z]
+
   # Figure out the left, up, and behind directions along the plane and record
   # them in the scene structure
   camera = bpy.data.objects['Camera']
