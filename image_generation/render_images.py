@@ -26,6 +26,7 @@ INSIDE_BLENDER = True
 try:
   import bpy, bpy_extras
   from mathutils import Vector
+  from bpy_pose_helper import get_3x4_P_matrix_from_blender
 except ImportError as e:
   INSIDE_BLENDER = False
 if INSIDE_BLENDER:
@@ -274,6 +275,13 @@ def render_scene(args,
 
   scene_struct['camera_location'] = [bpy.data.objects['Camera'].location.x, bpy.data.objects['Camera'].location.y, bpy.data.objects['Camera'].location.z]
   scene_struct['camera_rotation'] = [bpy.data.objects['Camera'].rotation_euler.x, bpy.data.objects['Camera'].rotation_euler.y, bpy.data.objects['Camera'].rotation_euler.z]
+  P, K, RT = get_3x4_P_matrix_from_blender(bpy.data.objects['Camera'])
+  print("K")
+  print(K)
+  print("RT")
+  print(RT)
+  print("P")
+  print(P)
 
   # Figure out the left, up, and behind directions along the plane and record
   # them in the scene structure
