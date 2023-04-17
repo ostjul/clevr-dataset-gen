@@ -325,9 +325,9 @@ def render_scene(args,
   print(RT)
   print("P")
   print(P)
-  scene_struct['camera_intrinsics'] = K
-  scene_struct['camera_extrinsics'] = RT
-  scene_struct['camera_projection'] = P
+  scene_struct['camera_intrinsics'] = [list(row) for row in K]
+  scene_struct['camera_extrinsics'] = [list(row) for row in RT]
+  scene_struct['camera_projection'] = [list(row) for row in P]
 
   while True:
     try:
