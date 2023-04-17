@@ -12,6 +12,10 @@ Run DiscoScene like scenes on the gpu
 blender --background --python render_images.py -- --num_images 50000 --use_gpu 1 --width 256 --height 256 --min_objects 2 --max_objects 2
 ```
 
+```
+blender --background --python render_images.py -- --num_images 50000 --use_gpu 1 --width 256 --height 256 --camera_jitter 0.0 --min_objects 2 --max_objects 2 --output_image_dir ../CLEVR_2obj_w_pose/images/new/ --output_scene_dir ../CLEVR_2obj_w_pose/scenes/new/ --output_scene_file ../CLEVR_2obj_w_pose/scenes/CLEVR_new_scenes.json --start_idx 620
+```
+
 Any arguments following the `--` will be captured by `render_images.py`.
 
 This command should be run from the `image_generation` directory, since by default the script will load resources from the `data` directory.
